@@ -6,43 +6,47 @@ var responseTag = document.getElementById('response');
 var respondTag = document.getElementById('respond');
 var randomNumber = Math.ceil(Math.random() * 100);
 
-console.log(responseTag.);
-var b = function (secretNumber) {
+var b = function () {
+	secretNumber = randomNumber;
 	let input = document.getElementById('guess');
-	responseTag.textContent('asdasd');
-	
-	
 	let currentGuessedNumber = input.value;
+
 	if(typeof(firstGuess) === 'undefined'){
 		firstGuess = currentGuessedNumber;
 	} else {
-		secondGuess = currentGuessedNumber
+		if(Number(secondGuess) >= 0){
+			firstGuess = secondGuess
+		}
+		secondGuess = currentGuessedNumber;
 	}
-
+	
     if(typeof(secondGuess) === 'undefined'){
         if(secretNumber === Number(firstGuess)){
             respondTag.textContent = 'match found';
+        } else if(secretNumber > Number(firstGuess)){
+            respondTag.textContent = 'guess higher';
         } else {
-            if(secretNumber > Number(firstGuess)){
-                respondTag.textContent = 'guess higher';
-            } else {
-                respondTag.textContent = 'guess lower';
-            }
+	        respondTag.textContent = 'guess lower';
         }
     } else {
         let diffWithFirstGuess = Math.abs(Number(secretNumber) - firstGuess);
         let diffWithSecondGuess = Math.abs(Number(secretNumber) - secondGuess);
 
+		if(secretNumber === Number(currentGuessedNumber)){
+            respondTag.textContent = 'match found';
+        } else if(secretNumber > Number(currentGuessedNumber)){
+            respondTag.textContent = 'guess higher';
+        } else {
+	        respondTag.textContent = 'guess lower';
+        }
         if(diffWithFirstGuess > diffWithSecondGuess){
             responseTag.textContent = 'Getting hotter';
-			respondTag.textContent = 'guess higher'
         } else {
 	        responseTag.textContent = 'Getting Colder';
-			respondTag.textContent = 'guess lower'
         }
     }
 }
 
-btn.addEventListener('click', b(randomNumber));
+btn.addEventListener('click', b);
 
 
