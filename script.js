@@ -6,9 +6,10 @@ var responseTag = document.getElementById('response');
 var respondTag = document.getElementById('respond');
 var randomNumber = Math.ceil(Math.random() * 100);
 
+console.log(responseTag.);
 var b = function (secretNumber) {
 	let input = document.getElementById('guess');
-	responseTag.outerText('asdasd');
+	responseTag.textContent('asdasd');
 	
 	
 	let currentGuessedNumber = input.value;
@@ -20,12 +21,12 @@ var b = function (secretNumber) {
 
     if(typeof(secondGuess) === 'undefined'){
         if(secretNumber === Number(firstGuess)){
-            respondTag.outerText = 'match found';
+            respondTag.textContent = 'match found';
         } else {
             if(secretNumber > Number(firstGuess)){
-                respondTag.outerText = 'guess higher';
+                respondTag.textContent = 'guess higher';
             } else {
-                respondTag.outerText = 'guess lower';
+                respondTag.textContent = 'guess lower';
             }
         }
     } else {
@@ -33,11 +34,11 @@ var b = function (secretNumber) {
         let diffWithSecondGuess = Math.abs(Number(secretNumber) - secondGuess);
 
         if(diffWithFirstGuess > diffWithSecondGuess){
-            responseTag.outerText = 'Getting hotter';
-			respondTag.outerText = 'guess higher'
+            responseTag.textContent = 'Getting hotter';
+			respondTag.textContent = 'guess higher'
         } else {
-	        responseTag.outerText = 'Getting Colder';
-			respondTag.outerText = 'guess lower'
+	        responseTag.textContent = 'Getting Colder';
+			respondTag.textContent = 'guess lower'
         }
     }
 }
