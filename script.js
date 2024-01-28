@@ -6,8 +6,11 @@ var responseTag = document.getElementById('response');
 var respondTag = document.getElementById('respond');
 var randomNumber = Math.ceil(Math.random() * 100);
 
-function prepareOutput(secretNumber) {
+var b = function (secretNumber) {
 	let input = document.getElementById('guess');
+	responseTag.outerText('asdasd');
+	
+	
 	let currentGuessedNumber = input.value;
 	if(typeof(firstGuess) === 'undefined'){
 		firstGuess = currentGuessedNumber;
@@ -39,4 +42,6 @@ function prepareOutput(secretNumber) {
     }
 }
 
-btn.addEventListener('click', prepareOutput(randomNumber));
+btn.addEventListener('click', b(randomNumber));
+
+
